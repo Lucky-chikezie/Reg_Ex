@@ -1,0 +1,20 @@
+//firstly, let's explain the format for each ATM card.
+//Visa:  starts with 4 and has like arround 13 or 16 digits long.
+//Mastercard:  starts with 51-55 or 2221-2720 and is 16 digit long.
+
+function CheckCard(cardNum) {
+  const visaRegex = /^4[0-9]{12}(?:[0-9]{3})?$/;   // Visa: starts with 4, 13 or 16 digits
+  const masterRegex = /^(5[1-5][0-9]{14}|2[2-7][0-9]{14})$/; // Mastercard: starts with 51–55 or 22–27, 16 digits
+
+  if (visaRegex.test(cardNum)) {
+    return "Valid Visa card number";
+  } else if (masterRegex.test(cardNum)) {
+    return "Valid Mastercard number";
+  } else {
+    return "Invalid card number";
+  }
+}
+
+// Examples
+console.log(CheckCard("4111653486657111")); // For the Visa
+console.log(CheckCard("5583838499900004")); // For the Mastercard
